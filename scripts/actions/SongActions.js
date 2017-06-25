@@ -1,15 +1,13 @@
 import * as types from '../constants/ActionTypes';
-import { callApi, Schemas } from '../helpers/api';
+import { request } from '../helpers/Request';
 
 export function fetchSongs() {
-  return callApi('http://soundcloud.com/whatever', Schemas.SONG)
-    .then(
-      success => {
-        console.log(success);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+  request('http://soundcloud.com/whatever')
+  .then((response) => {
+    console.log(response);
+  }, (error) => {
+    console.log(error);
+  });
 }
+
 
