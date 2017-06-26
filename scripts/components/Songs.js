@@ -7,8 +7,8 @@ class Songs extends Component {
     return (
       <div>
         { items }
-      </div>;
-    )
+      </div>
+    );
   }
 }
 
