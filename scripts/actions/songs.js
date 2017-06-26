@@ -13,7 +13,7 @@ export function receiveSongs(json) {
   return {
     type: types.RECEIVE_SONGS,
     songs: json.collection,
-  }
+  };
 }
 
 
