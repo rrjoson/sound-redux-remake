@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/songs';
 
 import Header from '../components/Header';
+import SongPlayer from '../components/SongPlayer';
 import Songs from '../components/Songs';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <div className='container'>
           <div className='content'>
             <Songs {...this.props} />
+            <SongPlayer song={songs.activeSong} />
           </div>
         </div>
       </div>

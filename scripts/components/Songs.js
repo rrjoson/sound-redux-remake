@@ -10,7 +10,6 @@ class Songs extends Component {
   }
 
   changeActiveSong(i) {
-    console.log(i);
     const { dispatch, songs } = this.props;
     dispatch(changeActiveSong(songs.items[i]));
   }
