@@ -12,6 +12,15 @@ class App extends Component {
     dispatch(fetchSongs());
   }
 
+  renderSongPlayer() {
+    const { songs } = this.props;
+    if (!songs.activeSong) {
+      return;
+    }
+
+    return <SongPlayer song={songs.activeSong} />
+  }
+
   render() {
     const { songs } = this.props;
     return (
@@ -20,9 +29,9 @@ class App extends Component {
         <div className='container'>
           <div className='content'>
             <Songs {...this.props} />
-            <SongPlayer song={songs.activeSong} />
           </div>
         </div>
+        {this.renderSongPlayer()}
       </div>
     );
   }
