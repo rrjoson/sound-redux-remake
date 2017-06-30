@@ -20,7 +20,7 @@ class Songs extends Component {
 
     let result = [];
     for (let i = 0; i < items.length; i += chunk) {
-      let songCards = items.slice(i, i + chunk).map((song) => {
+      let songCards = items.slice(i, i + chunk).map((song, j) => {
         return (
           <div className='col-1-5' key={song.id}>
             <SongCard
