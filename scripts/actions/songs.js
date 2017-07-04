@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 import { CLIENT_ID } from '../constants/Config';
 
-export function changeActiveSong() {
+export function changeActiveSong(song) {
   return {
     type: types.CHANGE_ACTIVE_SONG,
     song: song,

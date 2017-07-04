@@ -10,6 +10,6 @@ export function formatSongTitle(s) {
   return arr[arr.length - 1].split(' (')[0];
 }
 
-export function formatStreamaUrl(s) {
+export function formatStreamUrl(s) {
   return `${s}?client_id=${CLIENT_ID}`;
 }
