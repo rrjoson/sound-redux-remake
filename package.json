@@ -12,6 +12,10 @@
         "url": "https://github.com/rrjoson/sound-redux-remake.git"
     },
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/andrewngu/sound-redux/issues"
+    },
+    "homepage": "https://github.com/andrewngu/sound-redux",
     "devDependencies": {
         "babel-core": "^5.8.25",
         "babel-loader": "^5.3.2",
