@@ -5,6 +5,9 @@
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #e3e3e3;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .song-player-main {
@@ -60,6 +63,16 @@
   align-items: center;
   margin-left: 30px;
 }
+
+.song-player-seek-bar-wrap {
+  padding: 6px 0;
+  flex: 1;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 
 .song-player-seek-bar {
   position: relative;
