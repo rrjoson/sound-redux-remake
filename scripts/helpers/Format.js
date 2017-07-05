@@ -1,19 +1,11 @@
 import { CLIENT_ID } from '../constants/Config';
 
-function padZero(num, size) {
-  let s = num + '';
-  while (s.length < size) {
-    s = '0' + s;
-  }
-  return s;
-}
-
-export function formatSongTitle(s) {
-  if (!s) {
+export function formatSongTitle(str) {
+  if (!str) {
     return '';
   }
 
-  const arr = s.replace('–', '-').split(' - ');
+  const arr = str.replace('–', '-').split(' - ');
 
   return arr[arr.length - 1].split(' (')[0];
 }
@@ -27,3 +19,22 @@ export function formatSeconds(num) {
 export function formatStreamUrl(s) {
   return `${s}?client_id=${CLIENT_ID}`;
 }
+
+export function getImageUrl(str) {
+  if (!str) {
+    return '';
+  }
+
+  return str.replace('large', 't300x300');
+}
+
+function padZero(num, size) {
+  let s = num + '';
+  while (s.length < size) {
+    s = '0' + s;
+  }
+  return s;
+}
+
+
+

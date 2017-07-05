@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { changeActiveSong } from '../actions/songs';
+import InfiniteScrollify from '../components/InfiniteScrollify';
 import SongCard from '../components/SongCard';
 
 class Songs extends Component {
@@ -57,4 +58,4 @@ Songs.propTypes = {
   songs: PropTypes.object.isRequired,
 };
 
-export default Songs;
+export default InfiniteScrollify(Songs);
