@@ -8,7 +8,7 @@ export function changeActiveSong(song) {
   };
 }
 
-export function fetchSongs() {
+function fetchSongs() {
   return dispatch => {
     return fetch(`http://api.soundcloud.com/tracks?linked_partitioning=1&client_id=${CLIENT_ID}&tags=house&limit=50&offset=0`)
       .then(response => response.json())
@@ -16,11 +16,34 @@ export function fetchSongs() {
   };
 }
 
-export function receiveSongs(json) {
+export function fetchSongsIfNeeded() {
+  return (dispatch, getState) => {
+    console.log(getState)
+    const { songs } = getState();
+    if (shouldFetchSongs(songs)) {
+      return dispatch(fetchSongs())
+    }
+  }
+}
+
+function receiveSongs(json) {
   return {
     type: types.RECEIVE_SONGS,
+    nextUrl: json.next_href,
     songs: json.collection.filter((song) => song.streamable),
   };
 }
 
+function requestSongs() {
+  return {
+    type: types.REQUEST_SONGS,
+  };
+}
 
+function shouldFetchSongs(songs) {
+  if (songs.isFetching || !songs.nextUrl) {
+    return false;
+  }
+
+  return true;
+}
