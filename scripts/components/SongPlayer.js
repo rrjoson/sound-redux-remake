@@ -27,6 +27,7 @@ class SongPlayer extends Component {
       duration: 0,
       isPlaying: false,
       isSeeking: false,
+      volume: 1,
     };
   }
 
@@ -207,6 +208,18 @@ class SongPlayer extends Component {
     }
   }
 
+  renderVolumeBar() {
+    const { volume } = this.state;
+    const width = volume * 100;
+    return (
+      <div
+        className='song-player-seek-duration-bar'
+        style={{width: `${width}%`}}>
+        <div className='song-player-seek-handle'></div>
+      </div>
+    );
+  }
+
   render() {
     const {song} = this.props;
     const {currentTime, duration, isPlaying} = this.state;
@@ -258,6 +271,16 @@ class SongPlayer extends Component {
               <div
                 className={'song-player-button' + (this.state.shuffle ? ' active' : '')}>
                 <i className='icon ion-shuffle'></i>
+              </div>
+            </div>
+            <div className={'song-player-button'}>
+              <i className='icon ion-android-volume-mute'></i>
+            </div>
+            <div className='song-player-volume'>
+              <div className='song-player-seek-bar-wrap'>
+                <div className='song-player-seek-bar'>
+                  {this.renderVolumeBar()}
+                </div>
               </div>
             </div>
           </div>
